@@ -88,11 +88,6 @@ public class Hardware extends Extension
 		((Vibrator) mainContext.getSystemService(Context.VIBRATOR_SERVICE)).vibrate(duration);
 	}
 
-	public static function runIntent(action:String, url:String):Void {
-		var runIntent_jni:Dynamic = JNI.createStaticMethod('org/haxe/extension/Hardware', 'runIntent', '(Ljava/lang/String;Ljava/lang/String;)V');
-		runIntent_jni(action, url);
-	}
-
 	public static void wakeUp()
 	{
 		PowerManager pm = (PowerManager) mainContext.getSystemService(Context.POWER_SERVICE);
