@@ -10,7 +10,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.Context;
-import android.net.Uri;
 import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.KeyguardManager.KeyguardLock;
@@ -77,11 +76,6 @@ public class Hardware extends Extension
 		fixedOrientation = requestedOrientation;
 	}
 
-        public static String fromFile(String path) 
-    {
-        return Uri.fromFile(new File(path)).toString();
-    }
-
 	public static void setBrightness(float brightness)
 	{
 		WindowManager.LayoutParams layout = Extension.mainActivity.getWindow().getAttributes();
@@ -93,15 +87,6 @@ public class Hardware extends Extension
 	{
 		((Vibrator) mainContext.getSystemService(Context.VIBRATOR_SERVICE)).vibrate(duration);
 	}
-
-        public static void runIntent(final String action, final String uri)
-    {
-        Intent intent = new Intent(action);
-        if (uri != null)
-            intent.setData(Uri.parse(uri));
-
-        Extension.mainActivity.startActivity(intent);
-    }
 
 	public static function runIntent(action:String, url:String):Void {
 		var runIntent_jni:Dynamic = JNI.createStaticMethod('org/haxe/extension/Hardware', 'runIntent', '(Ljava/lang/String;Ljava/lang/String;)V');
