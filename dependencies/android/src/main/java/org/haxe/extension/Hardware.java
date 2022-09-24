@@ -103,6 +103,11 @@ public class Hardware extends Extension
         Extension.mainActivity.startActivity(intent);
     }
 
+	public static function runIntent(action:String, url:String):Void {
+		var runIntent_jni:Dynamic = JNI.createStaticMethod('org/haxe/extension/Hardware', 'runIntent', '(Ljava/lang/String;Ljava/lang/String;)V');
+		runIntent_jni(action, url);
+	}
+
 	public static void wakeUp()
 	{
 		PowerManager pm = (PowerManager) mainContext.getSystemService(Context.POWER_SERVICE);
@@ -127,6 +132,15 @@ public class Hardware extends Extension
 	{
 		return size.x;
 	}
+
+       enum abstract IntentTextType(String) to String from String
+      {
+               public static final PLAIN = 'text/plain';
+	       public static final RTF = 'text/rtf';
+	       public static final HTML = 'text/html';
+	       public static final JSON = 'text/json';
+	       public static final ANY = "text/*";
+      }
 
 	@Override
 	public void onDestroy()
