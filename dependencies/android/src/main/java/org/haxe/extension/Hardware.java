@@ -133,15 +133,6 @@ public class Hardware extends Extension
 		return size.x;
 	}
 
-       enum abstract IntentTextType(String) to String from String
-      {
-               public static final PLAIN = 'text/plain';
-	       public static final RTF = 'text/rtf';
-	       public static final HTML = 'text/html';
-	       public static final JSON = 'text/json';
-	       public static final ANY = "text/*";
-      }
-
 	@Override
 	public void onDestroy()
 	{
