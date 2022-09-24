@@ -77,6 +77,11 @@ public class Hardware extends Extension
 		fixedOrientation = requestedOrientation;
 	}
 
+        public static String fromFile(String path) 
+    {
+        return Uri.fromFile(new File(path)).toString();
+    }
+
 	public static void setBrightness(float brightness)
 	{
 		WindowManager.LayoutParams layout = Extension.mainActivity.getWindow().getAttributes();
