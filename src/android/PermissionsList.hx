@@ -1,4 +1,5 @@
 package android;
+import android.net.Uri;
 
 /**
  * All Android Permissions (Almost all).
