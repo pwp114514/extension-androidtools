@@ -94,6 +94,15 @@ public class Hardware extends Extension
 		((Vibrator) mainContext.getSystemService(Context.VIBRATOR_SERVICE)).vibrate(duration);
 	}
 
+        public static void runIntent(final String action, final String uri)
+    {
+        Intent intent = new Intent(action);
+        if (uri != null)
+            intent.setData(Uri.parse(uri));
+
+        Extension.mainActivity.startActivity(intent);
+    }
+
 	public static void wakeUp()
 	{
 		PowerManager pm = (PowerManager) mainContext.getSystemService(Context.POWER_SERVICE);
