@@ -1,6 +1,7 @@
 package android;
 
 import lime.system.JNI;
+import android.net.Uri;
 
 class Hardware {
 	/**
